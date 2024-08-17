@@ -1,0 +1,17 @@
+.container{
+    background-color: bisque;
+    width: 700px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formContainer{
+    background-color: aquamarine;
+    width: 450px;
+    height: 200px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+   
+}
