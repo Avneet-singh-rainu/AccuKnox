@@ -1,42 +1,41 @@
- <h1>React App</h1>
+# AccuKnox React Application
 
-    <p>This repository contains a <a href="https://reactjs.org/">React</a> application.</p>
+This repository contains a [React](https://reactjs.org/) application.
 
-    <p>Follow these steps to set up and run the project locally.</p>
+Follow these steps to set up and run the project locally.
 
-    <h3>Prerequisites</h3>
+### Prerequisites
 
-    <p>Before you start, ensure that you have the following installed on your machine:</p>
-    <ul>
-        <li><strong>Node.js</strong> (version 14.x or higher): <a href="https://nodejs.org/">Download Node.js</a></li>
-        <li><strong>npm</strong> (comes with Node.js) or <strong>yarn</strong> (optional): Install Yarn globally with <code>npm install -g yarn</code> if preferred.</li>
-    </ul>
+Before you start, ensure that you have the following installed on your machine:
 
-    <h3>Installation</h3>
+- **Node.js** (version 14.x or higher): [Download Node.js](https://nodejs.org/)
+- **npm** (comes with Node.js) or **yarn** (optional): Install Yarn globally with `npm install -g yarn` if preferred.
 
-    <ol>
-        <li>
-            <p><strong>Clone the repository:</strong></p>
-            <pre><code>git clone https://github.com/Avneet-singh-rainu/AccuKnox.git</code></pre>
-        </li>
-        <li>
-            <p><strong>Navigate to the project directory:</strong></p>
-            <pre><code>cd your-repo-name</code></pre>
-        </li>
-        <li>
-            <p><strong>Install dependencies:</strong></p>
-            <p>Using npm:</p>
-            <pre><code>npm install</code></pre>
-            <p>Or using Yarn:</p>
-            <pre><code>yarn install</code></pre>
-        </li>
-    </ol>
+### Installation
 
-    <h3>Running the App</h3>
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Avneet-singh-rainu/AccuKnox.git
+    ```
 
-    <p>To start the development server:</p>
+2. **Navigate to the project directory:**
+    ```bash
+    cd your-repo-name
+    ```
 
-    <p>npm run dev</p>
+3. **Install dependencies:**
+    - Using npm:
+      ```bash
+      npm install
+      ```
+    - Or using Yarn:
+      ```bash
+      yarn install
+      ```
 
+### Running the App
 
-    <p>The app will open in your default browser at <a href="http://localhost:3000">http://localhost:5173/</a> </p>
+To start the development server:
+
+```bash
+npm run dev
