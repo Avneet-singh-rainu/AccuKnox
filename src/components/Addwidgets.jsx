@@ -4,15 +4,21 @@ import {
     addWidgets,
     removeWidget,
     toggleAddWidget,
+    pushNewWidget,
 } from "../store/ActiveWidgetsSlice";
 import { tempData } from "../constants/Data";
 
 export const Addwidgets = ({ isOpen }) => {
     const dispatch = useDispatch();
     const activeWidgets = useSelector((state) => state.activeWidgets.data);
-    const [widgets, setWidgets] = useState([]);
+    const [widgets, setWidgets] = useState(
+        tempData.categories[0].widgets || []
+    );
     const [checkedItems, setCheckedItems] = useState([]);
     const [initialCheckedItems, setInitialCheckedItems] = useState([]);
+    const [currWidget, setCurrWidget] = useState(
+        tempData.categories[0].widgetName || []
+    );
 
     useEffect(() => {
         const initialCheckedItems = activeWidgets.flatMap((category) =>
@@ -23,6 +29,7 @@ export const Addwidgets = ({ isOpen }) => {
     }, [activeWidgets]);
 
     const handleWidget = (categoryName) => {
+        setCurrWidget(categoryName);
         const filtered = tempData.categories.find(
             (data) => data.widgetName === categoryName
         );
@@ -104,7 +111,11 @@ export const Addwidgets = ({ isOpen }) => {
                             {tempData.categories.map((c) => {
                                 return (
                                     <div
-                                        className="cursor-pointer p-2 bg-gray-200 rounded-lg"
+                                        className={`cursor-pointer p-2  rounded-lg hover:bg-indigo-900 hover:text-white ${
+                                            currWidget.includes(c.widgetName)
+                                                ? "bg-indigo-900 text-white"
+                                                : "bg-gray-200"
+                                        }`}
                                         onClick={() =>
                                             handleWidget(c.widgetName)
                                         }
@@ -115,7 +126,7 @@ export const Addwidgets = ({ isOpen }) => {
                             })}
                         </div>
                         <div className="mt-4">
-                            {widgets.map((t) => (
+                            {widgets?.map((t) => (
                                 <div
                                     key={t.id}
                                     className="flex items-center gap-2"

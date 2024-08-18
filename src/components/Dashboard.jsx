@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <div className="text-xl font-semibold">CNAPP Dashboard</div>
                 <div className="flex items-center gap-4">
                     <div
-                        className="bg-white border border-gray-300 rounded-lg font-semibold  w-36 h-10 flex items-center justify-center cursor-pointer"
+                        className="bg-white border border-gray-300 rounded-lg font-semibold  w-36 h-10 flex items-center justify-center cursor-pointer hover:bg-indigo-900 hover:text-white"
                         onClick={() => dispatch(toggleAddWidget())}
                     >
                         Add Widget +

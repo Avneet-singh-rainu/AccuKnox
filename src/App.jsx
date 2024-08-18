@@ -8,7 +8,7 @@ function App() {
         <div className="bg-blue-100 min-w-full min-h-full flex flex-col h-screen">
             <NavBar />
             <Dashboard />
-
+            
         </div>
     );
 }

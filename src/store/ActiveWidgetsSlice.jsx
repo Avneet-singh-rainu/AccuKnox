@@ -99,12 +99,18 @@ const activeWidgetsSlice = createSlice({
             });
         },
         toggleAddWidget(state, action) {
-            console.log(state.isopen);
             state.isopen = !state.isopen;
         },
+
     },
 });
 
-export const { addWidgets, deleteWidget, removeWidget, toggleAddWidget } =
-    activeWidgetsSlice.actions;
+export const {
+    addWidgets,
+    deleteWidget,
+    removeWidget,
+    toggleAddWidget,
+    pushNewWidget,
+    toggleNewWidgetWindow,
+} = activeWidgetsSlice.actions;
 export default activeWidgetsSlice.reducer;
