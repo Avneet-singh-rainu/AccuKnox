@@ -22,6 +22,15 @@ export const tempData = {
                     values: [1689, 681, 36, 7253],
                     chartType:"Doughnut",
                 },
+                {
+                    id: "cloud-security",
+                    name: "Cloud security",
+                    content:
+                    "Failed(1689),Warning(681)",
+                    categoryName: "CSPM",
+                    values: [1689, 681],
+                    chartType:"Doughnut",
+                },
             ],
         },
         {

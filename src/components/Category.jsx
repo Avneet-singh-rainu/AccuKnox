@@ -113,7 +113,7 @@ const Category = ({ data: initialCategory }) => {
             <div className="font-semibold text-lg text-gray-800 mb-1">
                 {initialCategory?.name}
             </div>
-            <div className="w-full h-5/6 flex gap-4">
+            <div className="w-full h-5/6 flex gap-6 justify-around">
                 {initialCategory.widgets?.map((widget, k) => {
                     const labels = parseContent(widget.content);
                     const chartData = {
@@ -146,7 +146,7 @@ const Category = ({ data: initialCategory }) => {
                     return (
                         <div
                             key={k}
-                            className="bg-white w-1/4 p-4 rounded-lg shadow-md flex flex-col items-center"
+                            className="bg-white w-[30%] p-4 rounded-2xl shadow-md flex flex-col items-center "
                         >
                             <div className="flex justify-between w-full mb-2">
                                 <div className="text-gray-700 font-medium">
@@ -160,7 +160,7 @@ const Category = ({ data: initialCategory }) => {
                                 </div>
                             </div>
                             <div className="w-full h-full">
-                                {chartData.datasets[0].data.length <=1 ? (
+                                {chartData.datasets[0].data.length <= 1 ? (
                                     <div className="w-4/4 h-3/4 flex flex-col items-center">
                                         <img
                                             src="./graph.svg"
@@ -201,7 +201,7 @@ const Category = ({ data: initialCategory }) => {
                 {Array.from({ length: emptySlots }).map((_, index) => (
                     <div
                         key={`empty-${index}`}
-                        className="bg-white w-1/4 p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
+                        className="bg-white w-[30%] p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
                     >
                         <button
                             className="text-gray-500 font-semibold border-2 py-2 px-4 rounded-lg hover:bg-blue-100"

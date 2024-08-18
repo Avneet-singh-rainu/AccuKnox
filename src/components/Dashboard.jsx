@@ -24,7 +24,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="relative w-screen p-4">
+        <div className="relative p-4">
             <div className="flex justify-between items-center">
                 <div className="text-xl font-semibold">CNAPP Dashboard</div>
                 <div className="flex items-center gap-4">

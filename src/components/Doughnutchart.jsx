@@ -32,7 +32,7 @@ const Doughnutchart = ({ addedWidgets }) => {
     }, [addedWidgets, dispatch, categories, data]);
 
     return (
-        <div className="w-screen h-screen flex flex-col gap-4">
+        <div className=" h-screen flex flex-col gap-4">
             {categories.map((category) => (
                 <div key={category.id} className="w-full h-2/4 overflow-hidden">
                     <Category data={category} />
