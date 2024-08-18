@@ -4,9 +4,19 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import Doughnut from "./Doughnutchart";
 import { Addwidgets } from "./Addwidgets";
+import {
+    addWidgets,
+    removeWidget,
+    toggleAddWidget,
+} from "../store/ActiveWidgetsSlice";
+
+import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    //const [isOpen, setIsOpen] = useState(false);
+    const isOpen = useSelector((state) => state.activeWidgets.isopen);
+    const dispatch = useDispatch();
+    //console.log(isopen.activeWidgets.isopen);
     const [addedWidgets, setAddedWidgets] = useState([]);
 
     const handleAddWidgets = (newWidgets) => {
@@ -14,13 +24,13 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="relative w-screen p-5">
+        <div className="relative w-screen p-4">
             <div className="flex justify-between items-center">
                 <div className="text-xl font-semibold">CNAPP Dashboard</div>
                 <div className="flex items-center gap-4">
                     <div
                         className="bg-white border border-gray-300 rounded-lg font-semibold  w-36 h-10 flex items-center justify-center cursor-pointer"
-                        onClick={() => setIsOpen(true)}
+                        onClick={() => dispatch(toggleAddWidget())}
                     >
                         Add Widget +
                     </div>
@@ -56,11 +66,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <Addwidgets
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                onAddWidgets={handleAddWidgets}
-            />
+            <Addwidgets isOpen={isOpen} onAddWidgets={handleAddWidgets} />
             <Doughnut addedWidgets={addedWidgets} />
         </div>
     );

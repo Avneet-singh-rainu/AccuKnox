@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addWidgets, removeWidget } from "../store/ActiveWidgetsSlice";
+import {
+    addWidgets,
+    removeWidget,
+    toggleAddWidget,
+} from "../store/ActiveWidgetsSlice";
 import { tempData } from "../constants/Data";
 
-export const Addwidgets = ({ isOpen, setIsOpen }) => {
+export const Addwidgets = ({ isOpen }) => {
     const dispatch = useDispatch();
     const activeWidgets = useSelector((state) => state.activeWidgets.data);
     const [widgets, setWidgets] = useState([]);
@@ -15,7 +19,7 @@ export const Addwidgets = ({ isOpen, setIsOpen }) => {
             category.widgets.map((widget) => widget.id)
         );
         setCheckedItems(initialCheckedItems);
-        setInitialCheckedItems(initialCheckedItems); // Store initial state
+        setInitialCheckedItems(initialCheckedItems);
     }, [activeWidgets]);
 
     const handleWidget = (categoryName) => {
@@ -51,14 +55,14 @@ export const Addwidgets = ({ isOpen, setIsOpen }) => {
             });
         });
 
-        // Add only the newly selected widgets
+        // add only the newly selected widgets
         dispatch(addWidgets({ widgetsToAdd: selectedWidgets }));
-        setIsOpen(false);
+        dispatch(toggleAddWidget());
     };
 
     const handleCancel = () => {
-        setCheckedItems(initialCheckedItems); // Revert to initial state
-        setIsOpen(false);
+        setCheckedItems(initialCheckedItems);
+        dispatch(toggleAddWidget());
     };
 
     const handleCheckboxChange = (e) => {
@@ -79,17 +83,17 @@ export const Addwidgets = ({ isOpen, setIsOpen }) => {
                 isOpen ? "flex" : "hidden"
             }`}
         >
-            {/* Left Transparent Div */}
+            {/* left Transparent Div */}
             <div className="w-1/2 h-full bg-black bg-opacity-50"></div>
 
-            {/* Right Div for Widget Selection */}
+            {/* right Div for Widget Selection */}
             <div className="w-1/2 h-full bg-white relative">
                 <div className="h-screen w-full flex flex-col">
                     <div className="h-10 flex justify-between bg-blue-950 items-center">
                         <div className="mx-4 text-white">Add Widgets</div>
                         <button
                             className="mx-4 text-white"
-                            onClick={() => setIsOpen(false)}
+                            onClick={handleCancel}
                         >
                             X
                         </button>
@@ -97,30 +101,18 @@ export const Addwidgets = ({ isOpen, setIsOpen }) => {
                     <div className="flex flex-col gap-4 p-4">
                         <div>Personalize your Dashboard by adding Widgets</div>
                         <div className="grid grid-flow-col gap-4">
-                            <div
-                                className="cursor-pointer p-2 bg-gray-200 rounded-lg"
-                                onClick={() => handleWidget("CSPM")}
-                            >
-                                CSPM
-                            </div>
-                            <div
-                                className="cursor-pointer p-2 bg-gray-200 rounded-lg"
-                                onClick={() => handleWidget("CWPP")}
-                            >
-                                CWPP
-                            </div>
-                            <div
-                                className="cursor-pointer p-2 bg-gray-200 rounded-lg"
-                                onClick={() => handleWidget("Image")}
-                            >
-                                Image
-                            </div>
-                            <div
-                                className="cursor-pointer p-2 bg-gray-200 rounded-lg"
-                                onClick={() => handleWidget("Ticket")}
-                            >
-                                Ticket
-                            </div>
+                            {tempData.categories.map((c) => {
+                                return (
+                                    <div
+                                        className="cursor-pointer p-2 bg-gray-200 rounded-lg"
+                                        onClick={() =>
+                                            handleWidget(c.widgetName)
+                                        }
+                                    >
+                                        {c.widgetName}
+                                    </div>
+                                );
+                            })}
                         </div>
                         <div className="mt-4">
                             {widgets.map((t) => (
@@ -144,7 +136,7 @@ export const Addwidgets = ({ isOpen, setIsOpen }) => {
                     <div className="absolute flex gap-4 bottom-10 right-10">
                         <button
                             className="border border-black p-4 w-24 rounded-lg h-10 flex justify-center items-center"
-                            onClick={handleCancel} // Use handleCancel here
+                            onClick={handleCancel}
                         >
                             Cancel
                         </button>

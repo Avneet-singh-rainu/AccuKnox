@@ -1,5 +1,5 @@
 import React from "react";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 const NavBar = () => {
@@ -16,7 +16,7 @@ const NavBar = () => {
                 </span>
                 <input
                     type="text"
-                    className="text-black border border-blue-200 rounded-lg w-full p-2 pl-10"
+                    className="text-black border-2 bg-blue-100 h-8 border-blue-200 rounded-lg w-full p-2 pl-10 focus:border-blue-300  focus:outline-none"
                     placeholder="Search anything..."
                 />
             </div>
